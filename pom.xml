@@ -194,7 +194,7 @@
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<directory>${project.basedir}/release</directory>
-		<finalName>MSContent</finalName>
+		<finalName>TestLCs</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
