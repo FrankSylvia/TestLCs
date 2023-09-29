@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CreateJS export from jake_anim 2</title>
+
+<script src="createJs/easeljs-0.6.0.min.js"></script>
+<script src="createJs/tweenjs-0.4.0.min.js"></script>
+<script src="createJs/movieclip-0.6.0.min.js"></script>
+<script src="createJs/preloadjs-0.3.0.min.js"></script>
+<script src="createJs/soundjs-0.4.0.min.js"></script>
+<script src="incorrect6.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+
+	var manifest = [
+		
+		{src:"sounds/Male_SolvingTogether.mp3", id:"Male_SolvingTogether"}
+	];
+
+	var loader = new createjs.LoadQueue(false);
+	loader.installPlugin(createjs.Sound);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(manifest);
+}
+
+function handleComplete() {
+	exportRoot = new lib.jake_anim2();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(24);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+
+function playSound(id, loop) {
+	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="270" height="600" style="background-color:#FFFFFF; margin: -10px -10px;"></canvas>
+</body>
+</html>
