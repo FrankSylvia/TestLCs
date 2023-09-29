@@ -168,11 +168,12 @@ var pgContext = "${pageContext.request.contextPath}";
 		var lcname = document.getElementById("lcname").value;
 		var serverName = document.getElementById("servername").value;
 
-		if (lcname == 'Isabel') {
-			server = "https://dev.mathspring.org:8443/MSContent";
+		if ( (lcname == 'Isabel') || (lcname == 'Isabella')) {
+			server = "https://dev.mathspring.org:8443/TestLCs";
 		}
 		else {
-			server = "https://s3.amazonaws.com/ec2-54-225-52-217.compute-1.amazonaws.com/MSContent";
+			
+			server = "https://s3.amazonaws.com/ec2-54-225-52-217.compute-1.amazonaws.com/mscontent";
 		}
 		var url = server + '/LearningCompanion/' + document.getElementById("lcname").value + '/' + 'idle.html';
         httpHead(url, successfulLCResult, failureLCResult);
